@@ -64,23 +64,6 @@ float OrderedPair::getAxis_z(void) {
 vector<OrderedPair> pointsArray;
 
 
-//OrderedPair bezier_curve(OrderedPair v1, OrderedPair v2, OrderedPair v3, float t) {
-	//pow(1 - t, 3) * v1.getAxis_x();
-	//pow(1 - t, 3) * v1.getAxis_y();
-	//3*t*(pow(1-t,2)) * v2.getAxis_x();
-	//3*t*(pow(1 - t, 2)) * v2.getAxis_y();
-	//3*(pow(t, 2))*(t-1)* v1.getAxis_x();
-	/*
-	pow(1 - t, 2) * v1.getAxis_x();
-	pow(1 - t, 2) * v1.getAxis_y();
-	2*t*(1-t)*v2.getAxis_x();
-	2*t*(1-t)*v2.getAxis_y();
-	pow(t,2)*v3.getAxis_x();
-	pow(t,2)*v3.getAxis_y();
-	*/
-	//return OrderedPair(pow(1 - t, 2) * v1.getAxis_x() + 2 * t*(1 - t)*v2.getAxis_x() + pow(t, 2)*v3.getAxis_x(), pow(1 - t, 2) * v1.getAxis_y() + 2 * t*(1 - t)*v2.getAxis_y() + pow(t, 2)*v3.getAxis_y());
-//};
-
 int factorial(int n)
 {
 	return (n == 1 || n == 0) ? 1 : factorial(n - 1) * n;
@@ -101,51 +84,6 @@ OrderedPair bezier_curve(int n, float t) {
 	OrderedPair temp(x, y, z);
 
 	return temp;
-}
-
-float random() {
-	srand((unsigned)time(NULL)*clock());
-	float b = ((float(rand()) / float(RAND_MAX)));
-	cout << "humn " << b << endl;
-	return b;
-}
-
-
-float RandomNumber(float Min, float Max)
-{
-	srand((unsigned)time(NULL)*clock());
-
-	return ((float(rand()) / float(RAND_MAX)) * (Max - Min)) + Min;
-
-	//return (float)rand() / (float)RAND_MAX * Max + Min;
-}
-
-
-int RandomPoints() {
-	int a = 5;
-	//a = RandomNumber(3.0, 15.0);
-	//cout << "teste2 " << (float)rand() / (float)RAND_MAX << endl;
-	//cout << "teste3 " << (float)rand() / (float)RAND_MAX << endl;
-	//cout << "teste " << (float)rand() / (float)RAND_MAX << endl;
-	//cout << "teste " << (float)rand() / (float)RAND_MAX << endl;
-	//cout << "teste " << (float)rand() / (float)RAND_MAX << endl;
-
-	return int(a);
-}
-
-void CreateOrderedPair() {
-	int points = RandomPoints();
-	cout << points << endl;
-	for (int i = 0; i < points; i++) {
-		//srand((unsigned)time(NULL)*clock());
-		//cout << RandomNumber(-1, 1) << endl;
-		//cout << RandomNumber(-1, 1) << endl;
-		//cout << RandomNumber(-1, 1) << endl;
-		//cout << "teste " << (float)rand() / (float)RAND_MAX << endl;
-		//cout << "teste " << (float)rand() / (float)RAND_MAX << endl;
-		pointsArray.push_back(OrderedPair(random(), random(), random()));
-	}
-
 }
 
 
@@ -288,7 +226,7 @@ int main(int argc, char **argv)
 
 	glutCreateWindow("Rafael Pais Cardoso");
 
-	//CreateOrderedPair();
+	
 
 	/*
 	pointsArray.push_back(OrderedPair(-0.8, -0.8, -0.2));
@@ -307,11 +245,11 @@ int main(int argc, char **argv)
 	*/
 
 	/*
-	pointsArray.push_back(OrderedPair(-0.5, 0.0, 0.0));
+	pointsArray.push_back(OrderedPair(-1.0, 0.0, 0.0));
 	pointsArray.push_back(OrderedPair(-0.3, 0.5, -0.5));
 	pointsArray.push_back(OrderedPair(0.0, 0.5, 0.0));
 	pointsArray.push_back(OrderedPair(0.3, -0.5, 0.5));
-	pointsArray.push_back(OrderedPair(0.5, 0.0, 0.0));
+	pointsArray.push_back(OrderedPair(1.0, 0.0, 0.0));
 	*/
 
 	/*
@@ -332,7 +270,7 @@ int main(int argc, char **argv)
 	pointsArray.push_back(OrderedPair(1.0, 1.0, -1.0));
 	*/
 
-	/*
+	
 	pointsArray.push_back(OrderedPair(-1.0, -1.0, -1.0));
 	pointsArray.push_back(OrderedPair(-0.8, -0.5, 0.5));
 	pointsArray.push_back(OrderedPair(-0.6, 0.5, 1.0));
@@ -341,7 +279,8 @@ int main(int argc, char **argv)
 	pointsArray.push_back(OrderedPair(0.85, 1.0, -0.8));
 	pointsArray.push_back(OrderedPair(-0.8, 1.0, -0.8));
 	pointsArray.push_back(OrderedPair(1.0, 1.0, -1.0));
-	*/
+	
+
 
 	glutDisplayFunc(display);
 	glutReshapeFunc(reshape);
